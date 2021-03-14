@@ -15,29 +15,60 @@ using Microsoft.Extensions.Logging;
 namespace Emanexpress.API
 {
     public class Startup
-    {
-        public Startup(IConfiguration configuration)
+    {        
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            Env = env;
         }
 
         public IConfiguration Configuration { get; }
-        
+        public IWebHostEnvironment Env { get; }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
             services.AddScoped<EmailDriverEmploymentApplicationHandler>();
-            services.AddScoped<EmailSender>();            
+            services.AddScoped<EmailSender>();
+            services.AddScoped<DriverEmploymentEmailTableFactory>();
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyAccidentRecords>();
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyAddress>();
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyApplicantInformation>();
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyEmploymentHistory>();
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyExperienceQualifications>();
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyLicenseHistory>();
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyTrafficConvictions>();            
             services.AddSmtpService();
+            
+            var userName = Configuration.GetValue<string>("Email:Smtp:Username");
+            var password = Configuration.GetValue<string>("Email:Smtp:Password");
+            services.AddScoped( d => new EmailSenderConfiguration(userName, password));
+            
+            var driverApplicationEmailReceiver = Configuration.GetValue<string>("DriverApplicationEmailReceiver");
+            services.AddScoped( d => new DriverApplicationEmailReceiverConfiguration(driverApplicationEmailReceiver));
+            
+            if(Env.IsDevelopment())
+            {
+              services.AddCors();
+            }            
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
             }
 
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            
             app.UseRouting();
 
             app.UseAuthorization();

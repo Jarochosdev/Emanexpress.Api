@@ -17,12 +17,12 @@ namespace Emanexpress.API.Controllers
         public DriverEmploymentApplicationsController(EmailDriverEmploymentApplicationHandler emailDriverEmploymentApplicationHandler)
         {
             EmailDriverEmploymentApplicationHandler = emailDriverEmploymentApplicationHandler;
-        }        
+        }
 
         [HttpPost]
         public async Task Post([FromBody]DtoDriverEmploymentApplication dtoDriverEmploymentApplication)
         {            
-            await EmailDriverEmploymentApplicationHandler.SendToDriverAsync(dtoDriverEmploymentApplication);
+            await EmailDriverEmploymentApplicationHandler.SendToAdministratorAsync(dtoDriverEmploymentApplication);
         }
     }
 }

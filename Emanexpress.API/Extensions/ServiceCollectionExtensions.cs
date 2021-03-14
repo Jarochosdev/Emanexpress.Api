@@ -15,19 +15,16 @@ namespace Emanexpress.API.Extensions
         {
             serviceCollection.AddScoped<SmtpClient>((serviceProvider) =>
             {                  
-                var config = serviceProvider.GetRequiredService<IConfiguration>();                                    
-                var userName = config.GetValue<string>("Email:Smtp:Username");                  
-                var password = config.GetValue<string>("Email:Smtp:Password");                  
-                var host = config.GetValue<string>("Email:Smtp:Host");                  
+                var config = serviceProvider.GetRequiredService<IConfiguration>();               
+                var host = config.GetValue<string>("Email:Smtp:Host");
                 var port = config.GetValue<int>("Email:Smtp:Port");
-                                    
-                return new SmtpClient()                 
+
+                return new SmtpClient()
                 {                      
-                    Host = host,                      
-                    Port = port,                      
-                    Credentials = new NetworkCredential(userName, password)                 
+                    Host = host,
+                    Port = port,                                  
                 };
-            });                            
+            });
             
             return serviceCollection;
         }
