@@ -18,11 +18,13 @@ namespace Emanexpress.API.Extensions
                 var config = serviceProvider.GetRequiredService<IConfiguration>();               
                 var host = config.GetValue<string>("Email:Smtp:Host");
                 var port = config.GetValue<int>("Email:Smtp:Port");
+                var enableSsl = config.GetValue<bool>("Email:Smtp:EnableSsl");
 
                 return new SmtpClient()
                 {                      
                     Host = host,
-                    Port = port,                                  
+                    Port = port,   
+                    EnableSsl = enableSsl,
                 };
             });
             
