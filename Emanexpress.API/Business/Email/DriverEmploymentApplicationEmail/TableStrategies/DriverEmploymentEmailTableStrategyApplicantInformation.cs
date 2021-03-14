@@ -92,7 +92,7 @@ namespace Emanexpress.API.Business.Email
         {
             if (date.HasValue)
             {
-                return date.Value.ToString("MM/dd/YYYY");
+                return date.Value.ToString("MM/dd/yyyy");
             }
             
             return "";            

@@ -9,20 +9,35 @@ namespace Emanexpress.API.Business.Email
 
         public EmailTable GetEmailTable(DtoDriverEmploymentApplication driverEmploymentApplication)
         {
-            var applicatInformationTable = new EmailTable("Aplicant Information");
-            
-            var firstName = new EmailRowFieldTable("First Name", driverEmploymentApplication.FirstName);
-            var middleName = new EmailRowFieldTable("Middle Name", driverEmploymentApplication.MiddleName);
-            var lastName = new EmailRowFieldTable("Last Name",driverEmploymentApplication.LastName);
-            applicatInformationTable.AddRow(firstName, middleName, lastName);            
-            
-            var phoneNumber = new EmailRowFieldTable("Phone Number", driverEmploymentApplication.Phone);
-            var driverEmail = new EmailRowFieldTable("Middle Name", driverEmploymentApplication.DriverEmail);
-            applicatInformationTable.AddRow(phoneNumber, driverEmail);
-            applicatInformationTable.TitleSeparator("Have you ever worked for this company before?");
-            //applicatInformationTable.AddRow(where, dateFrom, dateTo, rateOfPay);
+            var addressTable = new EmailTable("Address");
 
-            return applicatInformationTable;
-        }
+            if(driverEmploymentApplication.AddressHistory == null)
+            {
+                return addressTable;
+            }
+            
+            foreach(var address in driverEmploymentApplication.AddressHistory)
+            {
+                if(address.StillLeavingHere)
+                {
+                    addressTable.TitleSeparator("Current");
+                }
+                else
+                {
+                    addressTable.TitleSeparator("Previous");
+                }
+
+                var street = new EmailRowFieldTable("Street", address.Street);
+                var city = new EmailRowFieldTable("City", address.City);
+                var state = new EmailRowFieldTable("State",address.State);
+                addressTable.AddRow(street, city, state);
+
+                var zipCode = new EmailRowFieldTable("Zip Code", address.ZipCode, 20);
+                var numberOfYears = new EmailRowFieldTable("Number of years", address.NumberOfYears,30);
+                addressTable.AddRow(zipCode, numberOfYears);
+            }
+                                  
+            return addressTable;
+        }        
     }
 }

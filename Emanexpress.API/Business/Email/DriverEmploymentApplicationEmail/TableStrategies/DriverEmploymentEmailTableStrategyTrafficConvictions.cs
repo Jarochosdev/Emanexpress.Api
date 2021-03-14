@@ -1,5 +1,6 @@
 ﻿using Emanexpress.API.DataTransferObjects;
 using System;
+using System.Linq;
 
 namespace Emanexpress.API.Business.Email
 {
@@ -9,20 +10,46 @@ namespace Emanexpress.API.Business.Email
 
         public EmailTable GetEmailTable(DtoDriverEmploymentApplication driverEmploymentApplication)
         {
-            var applicatInformationTable = new EmailTable("Aplicant Information");
-            
-            var firstName = new EmailRowFieldTable("First Name", driverEmploymentApplication.FirstName);
-            var middleName = new EmailRowFieldTable("Middle Name", driverEmploymentApplication.MiddleName);
-            var lastName = new EmailRowFieldTable("Last Name",driverEmploymentApplication.LastName);
-            applicatInformationTable.AddRow(firstName, middleName, lastName);            
-            
-            var phoneNumber = new EmailRowFieldTable("Phone Number", driverEmploymentApplication.Phone);
-            var driverEmail = new EmailRowFieldTable("Middle Name", driverEmploymentApplication.DriverEmail);
-            applicatInformationTable.AddRow(phoneNumber, driverEmail);
-            applicatInformationTable.TitleSeparator("Have you ever worked for this company before?");
-            //applicatInformationTable.AddRow(where, dateFrom, dateTo, rateOfPay);
+            var trafficConvictionsTable = new EmailTable("Traffic Convictions");
 
-            return applicatInformationTable;
+            if(driverEmploymentApplication.TrafficConvictions == null)
+            {
+                return trafficConvictionsTable;
+            }
+            int position = 0;
+
+            foreach(var trafficConviction in driverEmploymentApplication.TrafficConvictions.OrderBy(o => o.Date))
+            {
+                if(position == 0)
+                {
+                    trafficConvictionsTable.TitleSeparator("Last");
+                }
+                else
+                {
+                    trafficConvictionsTable.TitleSeparator("Previous");
+                }
+
+                var date = new EmailRowFieldTable("Date", GetDate(trafficConviction.Date),30);
+                var location = new EmailRowFieldTable("Location", trafficConviction.Location,40);
+                var charge = new EmailRowFieldTable("Charge",trafficConviction.Charge,30);
+                trafficConvictionsTable.AddRow(date, location, charge);
+
+                var penalty = new EmailRowFieldTable("Penalty", trafficConviction.Penalty, 40);
+                trafficConvictionsTable.AddRow(penalty);
+                position++;
+            }
+                                  
+            return trafficConvictionsTable;
+        }
+
+        private string GetDate(DateTime? date)
+        {
+            if (date.HasValue)
+            {
+                return date.Value.ToString("MM/dd/yyyy");
+            }
+            
+            return "";            
         }
     }
 }

@@ -27,6 +27,7 @@ namespace Emanexpress.API.Business.Email
             var accidentRecordsTable =DriverEmploymentEmailTableFactory.GetEmailTable(driverEmploymentApplication, DriverEmploymentApplicationEmailTableType.AccidentRecords);
             var trafficConvictionsTable = DriverEmploymentEmailTableFactory.GetEmailTable(driverEmploymentApplication, DriverEmploymentApplicationEmailTableType.TrafficConvictions);
             var licenseHistoryTable = DriverEmploymentEmailTableFactory.GetEmailTable(driverEmploymentApplication, DriverEmploymentApplicationEmailTableType.LicenseHistory);
+            var drivingExperience = DriverEmploymentEmailTableFactory.GetEmailTable(driverEmploymentApplication, DriverEmploymentApplicationEmailTableType.DrivingExperience);
             var experienceQualificationTable = DriverEmploymentEmailTableFactory.GetEmailTable(driverEmploymentApplication, DriverEmploymentApplicationEmailTableType.ExperienceQualifications);
 
             driverEmailBuilder.AddTable(applicatInformationTable);
@@ -35,6 +36,7 @@ namespace Emanexpress.API.Business.Email
             driverEmailBuilder.AddTable(accidentRecordsTable);
             driverEmailBuilder.AddTable(trafficConvictionsTable);
             driverEmailBuilder.AddTable(licenseHistoryTable);
+            driverEmailBuilder.AddTable(drivingExperience);            
             driverEmailBuilder.AddTable(experienceQualificationTable);
 
             var driverApplicationemploymentBody =  driverEmailBuilder.Build();

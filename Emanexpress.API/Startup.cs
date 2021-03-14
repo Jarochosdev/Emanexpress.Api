@@ -31,13 +31,15 @@ namespace Emanexpress.API
             services.AddScoped<EmailDriverEmploymentApplicationHandler>();
             services.AddScoped<EmailSender>();
             services.AddScoped<DriverEmploymentEmailTableFactory>();
-            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyAccidentRecords>();
-            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyAddress>();
             services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyApplicantInformation>();
-            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyEmploymentHistory>();
-            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyExperienceQualifications>();
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyAddress>();            
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyEmploymentHistory>();  
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyAccidentRecords>();                      
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyTrafficConvictions>();
             services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyLicenseHistory>();
-            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyTrafficConvictions>();            
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyDrivingExperience>();
+            services.AddScoped<IDriverEmploymentEmailTableStrategy,DriverEmploymentEmailTableStrategyExperienceQualifications>();
+            
             services.AddSmtpService();
             
             var userName = Configuration.GetValue<string>("Email:Smtp:Username");

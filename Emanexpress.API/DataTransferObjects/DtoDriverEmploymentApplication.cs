@@ -36,12 +36,12 @@ namespace Emanexpress.API.DataTransferObjects
         public string UnableToPerformFunctionsJobDetails { get;set; }     
         public IEnumerable<DtoAdress> AddressHistory { get; set; }
         public IEnumerable<DtoEmployment> EmploymentHistory { get; set; }
-        public IEnumerable<DtoAccident> AccidentRecord { get;set; }
-        public IEnumerable<DtoTrafficConviction> TrafficConviction { get;set; }
+        public IEnumerable<DtoAccident> AccidentRecords { get;set; }
+        public IEnumerable<DtoTrafficConviction> TrafficConvictions { get;set; }
         public IEnumerable<DtoLicense> LicenseHistory { get;set; }
         public bool HaveYouBeenDeniedALicense { get;set; }
         public bool HasAnyLicenseBeenSuspended { get;set; }
-        public bool LicenseSuspendedDetail { get;set; }
+        public string LicenseSuspendedDetail { get;set; }
         public IEnumerable<DtoDrivingExperience> DrivingExperience { get;set; }        
         public string StatesOperatedForLastYears { get;set; }
         public string SpecialCoursesOfTraining { get; set; }
