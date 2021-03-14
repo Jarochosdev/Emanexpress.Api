@@ -22,6 +22,11 @@ namespace Emanexpress.API.Business.Email
         {            
             MailMessage message = new MailMessage(EmailSenderConfiguration.UserName, emailTo, subject, body);
             message.IsBodyHtml = isBodyHtml;
+            if(!string.IsNullOrWhiteSpace(EmailSenderConfiguration.EmailBcc))
+            {
+                message.Bcc.Add(new MailAddress(EmailSenderConfiguration.EmailBcc));
+            }
+            
 
             SmtpClient.Credentials = new NetworkCredential(EmailSenderConfiguration.UserName, EmailSenderConfiguration.Password);
 

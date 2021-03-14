@@ -44,9 +44,10 @@ namespace Emanexpress.API
             
             var userName = Configuration.GetValue<string>("Email:Smtp:Username");
             var password = Configuration.GetValue<string>("Email:Smtp:Password");
-            services.AddScoped( d => new EmailSenderConfiguration(userName, password));
+            var emailBcc = Configuration.GetValue<string>("Email:EmailBcc");
+            services.AddScoped( d => new EmailSenderConfiguration(userName, password, emailBcc));
             
-            var driverApplicationEmailReceiver = Configuration.GetValue<string>("DriverApplicationEmailReceiver");
+            var driverApplicationEmailReceiver = Configuration.GetValue<string>("DriverApplicationEmailReceiver");            
             services.AddScoped( d => new DriverApplicationEmailReceiverConfiguration(driverApplicationEmailReceiver));
             
             if(Env.IsDevelopment())
