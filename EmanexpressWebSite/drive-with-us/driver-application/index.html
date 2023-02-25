@@ -1,0 +1,1512 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">    
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Driver's Application | EMANEXPRESS</title>		
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link type="text/css" rel="stylesheet" href="../../assets/css/common.css">
+		<link type="text/css" rel="stylesheet" href="../../assets/css/driver-application-employment.css">
+		<link type="text/css" rel="stylesheet" href="../../assets/css/style.css" />
+		<link rel="shortcut icon" type="image/png" href="../../assets/images/favicon.png"/>
+		<script type="text/javascript" src="../../assets/js/constants.js"></script>
+	</head>
+	
+	<body style="background-color: #EBEBEB;">
+		<header id="drivewithus">				
+			<nav id="nav" class="navbar fixed-nav-white">
+				<div class="container">
+
+					<div class="navbar-header">					
+						<div class="navbar-brand">
+							<a href="../../">
+								<img class="logo" src="../../assets/images/logo.png" alt="logo">
+								<img class="logo-alt" src="../../assets/images/logo-alt.png" alt="logo">
+							</a>
+						</div>					
+						<div class="nav-collapse">
+							<span></span>
+						</div>
+					</div>
+					
+					<ul class="main-nav nav navbar-nav navbar-right">
+						<li><a href="../../">Home</a></li>		
+						<li><a href="../../get-a-quote">Get a quote</a></li>
+						<li><a href="#drivewithus">Drive with us</a></li>
+						<li class="never-active">						
+							<a href="../../#contact" class="top-button">Contact us</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		
+		<div class="container" style="min-height: 100%; padding-bottom: 50px">	
+			<div class="container-application">
+				<div id="svg_wrap"></div>	
+				
+				<div class="row">
+					<!-- why choose us content -->
+					<div class="col-md-12">
+						<div class="section-header text-center">
+							<h2 class="title">Driver's Application</h2>
+						</div>
+					</div>
+				</div>
+				
+				<div class="alert alert-warning alert-dismissible" id="local_saving_not_supported" style="display: none;">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				  <strong>Important!</strong> Your device/browser does not support local saving, so you need to complete the application at once.
+				</div>
+				<div class="alert alert-success alert-dismissible" id="local_saving_supported" style="display: none;">
+				  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				  <strong>Remember!</strong> This application will be saved locally in the current device/browser until is completed.
+				</div>
+				
+				<div class="alert alert-danger" style="display: none;" id="address-3-value-message">				  
+				  <strong>Error!</strong> You should specify the address for the last 3 years. Thanks.				
+				</div>
+				
+				<div class="alert alert-danger" style="display: none;" id="required-value-message">
+				  <strong>Error!</strong> You should fill all the required fields. Thanks.				
+				</div>
+				
+				<section>				
+					<div class="step-title">Step 1: Applicant Information</div>	
+					<div class="row">
+						<div class="col-md-12">
+							In compliance with Federal and State equal employment opportunity laws, qualified applicants are considered for all positions without regard to race, color, religion,sex, national origin, age, marital status, veteran status, non-job related disability, or any other protected group status.
+						</div>	
+						<p>&nbsp;</p>
+					</div>		
+					<div class="row">
+						<div class="col-md-4">
+						  <input type="text" class="form-field" placeholder="First name" title="First name" id="first_name" onKeyUp='saveDataLocally();' required='true'>
+						</div>
+						<div class="col-md-4">
+						  <input type="text" class="form-field" placeholder="Middle name" title="Middle name" id="middle_name" onKeyUp='saveDataLocally();'>
+						</div>
+						<div class="col-md-4">
+						  <input type="text" class="form-field" placeholder="Last name" title="Last name" id="last_name" onKeyUp='saveDataLocally();' required='true'>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+						  <input type="text" class="form-field" placeholder="Phone" title="Phone" id="phone" onKeyUp='saveDataLocally();' required='true'>
+						</div>
+						<div class="col-md-6">
+						  <input type="text" class="form-field" placeholder="Email" title="Email" id="email" onKeyUp='saveDataLocally();'>
+						</div>			
+					</div>
+					<div class="row">
+						<div class="col-md-4">					  
+						  <input type="text" class="form-field" placeholder="Date of birth" onfocus="(this.type='date')" title="Date of birth" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="date_of_birth" required='true'>
+
+						</div>					
+						<div class="col-md-4">
+							<input type="text" class="form-field" placeholder="Date available to start" onfocus="(this.type='date')" title="Date available to start" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="date_available_to_start" required='true'>
+					</div>						
+					</div>					
+					<div class="row">				
+						<div class="col-md-4">
+							<input type="text" class="form-field" placeholder="Position applied for" title="Position applied for" onKeyUp='saveDataLocally();' id="position_applied">
+						</div>					
+					</div>		
+					<div class="row">									
+						<div class="col-md-5">
+							<label class="form-label">Do you have the legal right to work in the United States?</label>
+						</div>						
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="legal_right" value="YES" onclick='saveDataLocally();' required='true'>
+							</div>
+							<label class="col-sm-9">YES</label>
+						</div>		
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="legal_right" value="NO" onclick='saveDataLocally();'>
+							</div>
+							<label class="col-sm-9">NO</label>
+						</div>
+						<!-- <div class="col-md-2">
+							<!-- <select class="form-field">
+								<option value="Select">Select...</option>
+								<option value="Yes">YES</option>
+								<option value="No">NO</option>
+							</select> -->
+							<!-- <div class="col-md-4 form-label">
+								<input type="checkbox" name="Legal_Right_To_work" value="NO"> 
+							</div>
+							<label class="col-md-8 form-label">NO</label> -->						
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Have you ever worked for this company before?</h4>
+						<div class="row">
+							<div class="col-md-3">
+							  <input type="text" class="form-field" placeholder="Where?" title="Where?" onKeyUp='saveDataLocally();' id="worked_with_us_where">
+							</div>
+							<div class="col-md-3">					  
+								<input type="text" class="form-field" placeholder="Date From" onfocus="(this.type='date')" title="Date From" onKeyUp='saveDataLocally();' id="worked_with_us_from" onchange='saveDataLocally();'>
+							</div>
+							<div class="col-md-3">					  
+								<input type="text" class="form-field" placeholder="Date To" onfocus="(this.type='date')" title="Date To" onKeyUp='saveDataLocally();' id="worked_with_us_to" onchange='saveDataLocally();'>
+							</div>
+							<div class="col-md-3">
+							  <input type="text" class="form-field" placeholder="Rate of pay" title="Rate of pay" onKeyUp='saveDataLocally();' id="worked_with_us_rate_of_pay">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="Position"title="Position" onKeyUp='saveDataLocally();' id="worked_with_us_position">
+							</div>
+							<div class="col-md-6">
+							  <input type="text" class="form-field" placeholder="Reason of leaving" title="Reason of leaving" onKeyUp='saveDataLocally();' id="worked_with_us_reason_of_leaving">
+							</div>						
+						</div>
+					</div>
+					<div class="row">
+						<hr>
+					</div>
+					<div class="row">
+						<div class="col-md-3" style="height: 45px">
+							<label class="form-label">Are you now employed?</label>
+						</div>						
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="now_employed" value="YES" onclick='saveDataLocally();' required='true'>
+							</div>
+							<label class="col-sm-9">YES</label>
+						</div>		
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="now_employed" value="NO" onclick='saveDataLocally();'>
+							</div>
+							<label class="col-sm-9">NO</label>
+						</div>					
+					</div>	
+					<div class="row">
+						<div class="col-md-6">
+							<input type="text" class="form-field" placeholder="If not employed, how long since last employment?" title="If not, how long since leaving last employment?" onKeyUp='saveDataLocally();' id="time_since_last_employment">
+						</div>
+					</div>
+					<div class="row">
+						<hr>
+					</div>
+					<div class="row">
+						<div class="col-md-4">
+							<input type="text" class="form-field" placeholder="Who refered you?" title="Who refered you?" onKeyUp='saveDataLocally();' id="who_refered_you">
+						</div>
+						<div class="col-md-4">
+							<input type="text" class="form-field" placeholder="Rate of pay expected?" title="Rate of pay expected?" onKeyUp='saveDataLocally();' id="rate_of_pay_expected" required='true'>
+						</div>
+					</div>
+					<div class="row">
+						<hr>
+					</div>
+					<div class="row">
+						<div class="col-md-3">
+							<label class="form-label" style="height: 45px">Have you ever been bonded?</label>
+						</div>						
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="bonded" value="YES" onclick='saveDataLocally();' required='true'>
+							</div>
+							<label class="col-sm-9">YES</label>
+						</div>		
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="bonded" value="NO" onclick='saveDataLocally();'>
+							</div>
+							<label class="col-sm-9">NO</label>
+						</div>					
+					</div>	
+					<div class="row">
+						<div class="col-md-6">
+							<input type="text" class="form-field" placeholder="Name of bonding company" title="Name of bonding company" onKeyUp='saveDataLocally();' id="bonding_company">
+						</div>
+					</div>
+					<div class="row">
+						<hr>
+					</div>
+					<div class="row">
+						<div class="col-md-5">
+							<label class="form-label" style="height: 45px">Have you ever been convicted of a felony?</label>
+						</div>						
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="convicted_felony" value="YES" onclick='saveDataLocally();' required='true'>
+							</div>
+							<label class="col-sm-9">YES</label>
+						</div>		
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="convicted_felony" value="NO" onclick='saveDataLocally();'>
+							</div>
+							<label class="col-sm-9">NO</label>
+						</div>					
+					</div>	
+					<div class="row">
+						<div class="col-md-6">
+							<input type="text" class="form-field" placeholder="If you have been convicted of a felony, explain fully." title="If you have been convicted of a felony, explain fully." onKeyUp='saveDataLocally();' id="felony_details">
+						</div>
+					</div>
+					<div class="row">
+						<hr>
+					</div>
+					<div class="row">
+						<div class="col-md-10">
+							<label class="form-label" style="height: 45px">Is there any reason you might be unable to perform the functions of the job for which you have applied?</label>
+						</div>						
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="unable_to_perform_job" value="YES" onclick='saveDataLocally();' required='true'>
+							</div>
+							<label class="col-sm-9">YES</label>
+						</div>		
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="unable_to_perform_job" value="NO" onclick='saveDataLocally();'>
+							</div>
+							<label class="col-sm-9">NO</label>
+						</div>					
+					</div>	
+					<div class="row">
+						<div class="col-md-8">
+							<input type="text" class="form-field" placeholder="If you are unable to perform the functions of the job, explain if you wish." title="If you are unable to perform the functions of the job, explain if you wish." onKeyUp='saveDataLocally();' id="unable_to_perform_job_details">
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="step-title">Step 2: Address</div>	
+					<div class="row">
+						<div class="col-md-12">
+							For the past 3 years.
+						</div>	
+					</div>	
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Current</h4>
+						<div class="row">
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="Street"title="Street" onKeyUp='saveDataLocally();' id="address_street_0" required='true'>
+							</div>
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="City" title="City" onKeyUp='saveDataLocally();' id="address_city_0" required='true'>
+							</div>
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="address_state_0" required='true'>
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="Zip code" title="Zip code" onKeyUp='saveDataLocally();' id="address_zip_code_0" required='true'>
+							</div>							
+							<div class="col-md-4">					  
+								<input type="text" class="form-field" placeholder="Living From" onfocus="(this.type='date')" title="Living From" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="address_living_from_0" required='true'>
+							</div>					
+							<div class="col-md-4">					  
+								<input type="text" class="form-field" placeholder="Living To" onfocus="(this.type='date')" title="Living To" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="address_living_to_0" required='true'>
+							</div>					
+						</div>						
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="Street"title="Street" onKeyUp='saveDataLocally();' id="address_street_1">
+							</div>
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="City" title="City" onKeyUp='saveDataLocally();' id="address_city_1">
+							</div>
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="address_state_1">
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="Zip code" title="Zip code" onKeyUp='saveDataLocally();' id="address_zip_code_1">
+							</div>
+							<div class="col-md-4">					  
+								<input type="text" class="form-field" placeholder="Living From" onfocus="(this.type='date')" title="Living From" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="address_living_from_1">
+							</div>					
+							<div class="col-md-4">					  
+								<input type="text" class="form-field" placeholder="Living To" onfocus="(this.type='date')" title="Living To" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="address_living_to_1">
+							</div>				
+						</div>					
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="Street"title="Street" onKeyUp='saveDataLocally();' id="address_street_2">
+							</div>
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="City" title="City" onKeyUp='saveDataLocally();' id="address_city_2">
+							</div>
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="address_state_2">
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="Zip code" title="Zip code" onKeyUp='saveDataLocally();' id="address_zip_code_2">
+							</div>
+							<div class="col-md-4">					  
+								<input type="text" class="form-field" placeholder="Living From" onfocus="(this.type='date')" title="Living From" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="address_living_from_2">
+							</div>					
+							<div class="col-md-4">					  
+								<input type="text" class="form-field" placeholder="Living To" onfocus="(this.type='date')" title="Living To" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="address_living_to_2">
+							</div>				
+						</div>					
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="Street"title="Street" onKeyUp='saveDataLocally();' id="address_street_3">
+							</div>
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="City" title="City" onKeyUp='saveDataLocally();' id="address_city_3">
+							</div>
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="address_state_3">
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-md-4">
+							  <input type="text" class="form-field" placeholder="Zip code" title="Zip code" onKeyUp='saveDataLocally();' id="address_zip_code_3">
+							</div>
+							<div class="col-md-4">					  
+								<input type="text" class="form-field" placeholder="Living From" onfocus="(this.type='date')" title="Living From" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="address_living_from_3">
+							</div>					
+							<div class="col-md-4">					  
+								<input type="text" class="form-field" placeholder="Living To" onfocus="(this.type='date')" title="Living To" onKeyUp='saveDataLocally();' onchange='saveDataLocally();' id="address_living_to_3">
+							</div>			
+						</div>						
+					</div>					
+				</section>
+
+				<section>
+					<div class="step-title">Step 3: Employment History</div>	
+					<div class="row">
+						<div class="col-md-12">
+							All driver applicants to drive in interstate commerce must provide the following information on all employers
+	during the preceeding 2 years. List complete mailing address, street number, city, state, and zip code.
+	Applicants to drive a commercial motor vehicle* in intrastate or interstate commerce shall also provide an
+	additional 7 years' information on those employers for whom the applicant operated such vehicle.
+	(NOTE: List employers in reverse order starting with the most recent.)
+						</div>
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Current</h4>
+						<div class="row">					
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Name" title="Name" onKeyUp='saveDataLocally();' id="employment_name_0">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Address" title="Address" onKeyUp='saveDataLocally();' id="employment_address_0">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="City" title="City" onKeyUp='saveDataLocally();' id="employment_city_0">
+							</div>
+						</div>
+						<div class="row">												
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="employment_state_0">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Zip code"title="Zip code" onKeyUp='saveDataLocally();' id="employment_zip_code_0">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Contact person" title="Contact person" onKeyUp='saveDataLocally();' id="employment_contact_0">
+							</div>
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Phone number" title="Phone number" onKeyUp='saveDataLocally();' id="employment_phone_0">
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="From Mo/Year"title="From Mo/Year" onKeyUp='saveDataLocally();' id="employment_from_0" onfocus="(this.type='date')" onchange='saveDataLocally();' required='true'>
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="To Mo/Year"title="To Mo/Year" onKeyUp='saveDataLocally();' id="employment_to_0" onfocus="(this.type='date')" onchange='saveDataLocally();' required='true'>
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Salary" title="Salary" onKeyUp='saveDataLocally();' id="employment_salary_0">
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Position Held" title="Position Held" onKeyUp='saveDataLocally();' id="employment_position_0">
+							</div>						
+							<div class="col-md-8">
+								<input type="text" class="form-field" placeholder="Reason for leaving" title="Reason for leaving" onKeyUp='saveDataLocally();' id="employment_reason_for_leaving_0">
+							</div>							
+						</div>					
+						<div class="row">									
+							<div class="col-md-5">
+								<label class="form-label" style="height: 45px">Were you subject to the FMCSRs† while employed?</label>
+							</div>						
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="FMCSRs_0" value="YES" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9"" for="male">YES</label>
+							</div>		
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="FMCSRs_0" value="NO" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9"" for="male">NO</label>
+							</div>
+						</div>						
+						<div class="row">									
+							<div class="col-md-8">
+								<label class="form-label">Was you job designated as a safety-sensitive function in any dot-regulated mode subject to the drug and alcohol testing requirements of 49 CFR Part 40?</label>
+							</div>						
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="safety_sensitive_0" value="YES" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9">YES</label>
+							</div>		
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="safety_sensitive_0" value="NO" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9">NO</label>
+							</div>
+						</div>	
+					</div>
+					
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">					
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Name" title="Name" onKeyUp='saveDataLocally();' id="employment_name_1">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Address" title="Address" onKeyUp='saveDataLocally();' id="employment_address_1">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="City" title="City" onKeyUp='saveDataLocally();' id="employment_city_1">
+							</div>
+						</div>
+						<div class="row">												
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="employment_state_1">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Zip code"title="Zip code" onKeyUp='saveDataLocally();' id="employment_zip_code_1">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Contact person" title="Contact person" onKeyUp='saveDataLocally();' id="employment_contact_1">
+							</div>
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Phone number" title="Phone number" onKeyUp='saveDataLocally();' id="employment_phone_1">
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="From Mo/Year"title="From Mo/Year" onKeyUp='saveDataLocally();' id="employment_from_1" onfocus="(this.type='date')" onchange='saveDataLocally();'>
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="To Mo/Year"title="To Mo/Year" onKeyUp='saveDataLocally();' id="employment_to_1" onfocus="(this.type='date')" onchange='saveDataLocally();'>
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Salary" title="Salary" onKeyUp='saveDataLocally();' id="employment_salary_1">
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Position Held" title="Position Held" onKeyUp='saveDataLocally();' id="employment_position_1">
+							</div>						
+							<div class="col-md-8">
+								<input type="text" class="form-field" placeholder="Reason for leaving" title="Reason for leaving" onKeyUp='saveDataLocally();' id="employment_reason_for_leaving_1">
+							</div>							
+						</div>					
+						<div class="row">									
+							<div class="col-md-5">
+								<label class="form-label" style="height: 45px">Were you subject to the FMCSRs† while employed?</label>
+							</div>						
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="FMCSRs_1" value="YES" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9"" for="male">YES</label>
+							</div>		
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="FMCSRs_1" value="NO" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9"" for="male">NO</label>
+							</div>
+						</div>						
+						<div class="row">									
+							<div class="col-md-8">
+								<label class="form-label">Was you job designated as a safety-sensitive function in any dot-regulated mode subject to the drug and alcohol testing requirements of 49 CFR Part 40?</label>
+							</div>						
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="safety_sensitive_1" value="YES" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9">YES</label>
+							</div>		
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="safety_sensitive_1" value="NO" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9">NO</label>
+							</div>
+						</div>	
+					</div>
+					
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">					
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Name" title="Name" onKeyUp='saveDataLocally();' id="employment_name_2">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Address" title="Address" onKeyUp='saveDataLocally();' id="employment_address_2">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="City" title="City" onKeyUp='saveDataLocally();' id="employment_city_2">
+							</div>
+						</div>
+						<div class="row">												
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="employment_state_2">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Zip code"title="Zip code" onKeyUp='saveDataLocally();' id="employment_zip_code_2">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Contact person" title="Contact person" onKeyUp='saveDataLocally();' id="employment_contact_2">
+							</div>
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Phone number" title="Phone number" onKeyUp='saveDataLocally();' id="employment_phone_2">
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="From Mo/Year"title="From Mo/Year" onKeyUp='saveDataLocally();' id="employment_from_2" onfocus="(this.type='date')" onchange='saveDataLocally();'>
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="To Mo/Year"title="To Mo/Year" onKeyUp='saveDataLocally();' id="employment_to_2" onfocus="(this.type='date')" onchange='saveDataLocally();'>
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Salary" title="Salary" onKeyUp='saveDataLocally();' id="employment_salary_2">
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Position Held" title="Position Held" onKeyUp='saveDataLocally();' id="employment_position_2">
+							</div>						
+							<div class="col-md-8">
+								<input type="text" class="form-field" placeholder="Reason for leaving" title="Reason for leaving" onKeyUp='saveDataLocally();' id="employment_reason_for_leaving_2">
+							</div>							
+						</div>					
+						<div class="row">									
+							<div class="col-md-5">
+								<label class="form-label" style="height: 45px">Were you subject to the FMCSRs† while employed?</label>
+							</div>						
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="FMCSRs_2" value="YES" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9"" for="male">YES</label>
+							</div>		
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="FMCSRs_2" value="NO" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9"" for="male">NO</label>
+							</div>
+						</div>						
+						<div class="row">									
+							<div class="col-md-8">
+								<label class="form-label">Was you job designated as a safety-sensitive function in any dot-regulated mode subject to the drug and alcohol testing requirements of 49 CFR Part 40?</label>
+							</div>						
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="safety_sensitive_2" value="YES" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9">YES</label>
+							</div>		
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="safety_sensitive_2" value="NO" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9">NO</label>
+							</div>
+						</div>	
+					</div>
+					
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">					
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Name" title="Name" onKeyUp='saveDataLocally();' id="employment_name_3">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Address" title="Address" onKeyUp='saveDataLocally();' id="employment_address_3">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="City" title="City" onKeyUp='saveDataLocally();' id="employment_city_3">
+							</div>
+						</div>
+						<div class="row">												
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="employment_state_3">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Zip code"title="Zip code" onKeyUp='saveDataLocally();' id="employment_zip_code_3">
+							</div>
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Contact person" title="Contact person" onKeyUp='saveDataLocally();' id="employment_contact_3">
+							</div>
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Phone number" title="Phone number" onKeyUp='saveDataLocally();' id="employment_phone_3">
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="From Mo/Year"title="From Mo/Year" onKeyUp='saveDataLocally();' id="employment_from_3" onfocus="(this.type='date')" onchange='saveDataLocally();'>
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="To Mo/Year"title="To Mo/Year" onKeyUp='saveDataLocally();' id="employment_to_3" onfocus="(this.type='date')" onchange='saveDataLocally();'>
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Salary" title="Salary" onKeyUp='saveDataLocally();' id="employment_salary_3">
+							</div>
+						</div>
+						<div class="row">					
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Position Held" title="Position Held" onKeyUp='saveDataLocally();' id="employment_position_3">
+							</div>						
+							<div class="col-md-8">
+								<input type="text" class="form-field" placeholder="Reason for leaving" title="Reason for leaving" onKeyUp='saveDataLocally();' id="employment_reason_for_leaving_3">
+							</div>							
+						</div>					
+						<div class="row">									
+							<div class="col-md-5">
+								<label class="form-label" style="height: 45px">Were you subject to the FMCSRs† while employed?</label>
+							</div>						
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="FMCSRs_3" value="YES" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9"" for="male">YES</label>
+							</div>		
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="FMCSRs_3" value="NO" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9"" for="male">NO</label>
+							</div>
+						</div>						
+						<div class="row">									
+							<div class="col-md-8">
+								<label class="form-label">Was you job designated as a safety-sensitive function in any dot-regulated mode subject to the drug and alcohol testing requirements of 49 CFR Part 40?</label>
+							</div>						
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="safety_sensitive_3" value="YES" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9">YES</label>
+							</div>		
+							<div class="input-group col-md-2">	
+								<div class="col-sm-3">
+									<input type="radio" name="safety_sensitive_3" value="NO" onclick='saveDataLocally();'>
+								</div>
+								<label class="col-sm-9">NO</label>
+							</div>
+						</div>	
+					</div>
+					
+					<div class="row">
+						<hr>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<p>
+							* Includes vehicles having a GVWR of 26,001 lbs. or more, vehicles designed to transport 16 or more passengers (including the driver), or any size vehicle used to transport hazardous materials in a quantity requiring placarding.
+							</p>
+							<p>
+							† The Federal Motor Carrier Safety Regulations (FMCSRs) apply to anyone operating a motor vehicle on a highway in interstate commerce to transport passengers or property when the vehicle: (1) weighs or has a GVWR of 10,001 pounds or more, (2) is designed or used to transport 8 or more passengers (including the driver), OR (3) is of any size and is used to transport hazardous materials in a quantity requiring placarding.
+							</p>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="step-title">Step 4: Accident Record(s)</div>	
+					<div class="row">
+						<div class="col-md-12">
+							For the past 3 years.
+						</div>	
+					</div>				
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Last</h4>
+						<div class="row">					
+							<div class="col-md-3">
+								 <input type="text" class="form-field" placeholder="Date" onfocus="(this.type='date')" title="Date" onKeyUp='saveDataLocally();' id="accident_record_date_0">
+							</div>
+							<div class="col-md-5">
+								<input type="text" class="form-field" placeholder="Nature of accident (Head-On, Read-End, Upset, Etc.)" title="Nature of accident (Head-On, Read-End, Upset, Etc.)" onKeyUp='saveDataLocally();' id="accident_record_nature_0">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Fatalities" title="Fatalities" onKeyUp='saveDataLocally();' id="accident_record_Fatalities_0">
+							</div>						
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Injuries" title="Injuries" onKeyUp='saveDataLocally();' id="accident_record_Injuries_0">
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Hazardous material spill"title="Hazardous material spill" onKeyUp='saveDataLocally();' id="accident_record_hazardous_material_0">
+							</div>						
+						</div>
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">					
+							<div class="col-md-3">
+								 <input type="text" class="form-field" placeholder="Date" onfocus="(this.type='date')" title="Date" onKeyUp='saveDataLocally();' id="accident_record_date_1">
+							</div>
+							<div class="col-md-5">
+								<input type="text" class="form-field" placeholder="Nature of accident (Head-On, Read-End, Upset, Etc.)" title="Nature of accident (Head-On, Read-End, Upset, Etc.)" onKeyUp='saveDataLocally();' id="accident_record_nature_1">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Fatalities" title="Fatalities" onKeyUp='saveDataLocally();' id="accident_record_Fatalities_1">
+							</div>						
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Injuries" title="Injuries" onKeyUp='saveDataLocally();' id="accident_record_Injuries_1">
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Hazardous material spill"title="Hazardous material spill" onKeyUp='saveDataLocally();' id="accident_record_hazardous_material_1">
+							</div>						
+						</div>
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">					
+							<div class="col-md-3">
+								 <input type="text" class="form-field" placeholder="Date" onfocus="(this.type='date')" title="Date" onKeyUp='saveDataLocally();' id="accident_record_date_2">
+							</div>
+							<div class="col-md-5">
+								<input type="text" class="form-field" placeholder="Nature of accident (Head-On, Read-End, Upset, Etc.)" title="Nature of accident (Head-On, Read-End, Upset, Etc.)" onKeyUp='saveDataLocally();' id="accident_record_nature_2">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Fatalities" title="Fatalities" onKeyUp='saveDataLocally();' id="accident_record_Fatalities_2">
+							</div>						
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Injuries" title="Injuries" onKeyUp='saveDataLocally();' id="accident_record_Injuries_2">
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Hazardous material spill"title="Hazardous material spill" onKeyUp='saveDataLocally();' id="accident_record_hazardous_material_2">
+							</div>						
+						</div>
+					</div>
+					
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">					
+							<div class="col-md-3">
+								 <input type="text" class="form-field" placeholder="Date" onfocus="(this.type='date')" title="Date" onKeyUp='saveDataLocally();' id="accident_record_date_3">
+							</div>
+							<div class="col-md-5">
+								<input type="text" class="form-field" placeholder="Nature of accident (Head-On, Read-End, Upset, Etc.)" title="Nature of accident (Head-On, Read-End, Upset, Etc.)" onKeyUp='saveDataLocally();' id="accident_record_nature_3">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Fatalities" title="Fatalities" onKeyUp='saveDataLocally();' id="accident_record_Fatalities_3">
+							</div>						
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Injuries" title="Injuries" onKeyUp='saveDataLocally();' id="accident_record_Injuries_3">
+							</div>
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Hazardous material spill"title="Hazardous material spill" onKeyUp='saveDataLocally();' id="accident_record_hazardous_material_3">
+							</div>						
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="step-title">Step 5: Traffic Conviction(s)</div>
+					<div class="row">
+						<div class="col-md-12">
+							For the past 3 years.
+						</div>	
+					</div>
+					<div>			  				
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Last</h4>
+						<div class="row">					
+							<div class="col-md-3">
+								 <input type="text" class="form-field" placeholder="Date" onfocus="(this.type='date')" title="Date" onKeyUp='saveDataLocally();' id="traffic_conviction_date_0">
+							</div>
+							<div class="col-md-5">
+								<input type="text" class="form-field" placeholder="Location" title="Location" onKeyUp='saveDataLocally();' id="traffic_conviction_location_0">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Charge" title="Charge" onKeyUp='saveDataLocally();' id="traffic_conviction_charge_0">
+							</div>						
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Penalty" title="Penalty" onKeyUp='saveDataLocally();' id="traffic_conviction_penalty_0">
+							</div>
+						</div>
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">					
+							<div class="col-md-3">
+								 <input type="text" class="form-field" placeholder="Date" onfocus="(this.type='date')" title="Date" onKeyUp='saveDataLocally();' id="traffic_conviction_date_1">
+							</div>
+							<div class="col-md-5">
+								<input type="text" class="form-field" placeholder="Location" title="Location" onKeyUp='saveDataLocally();' id="traffic_conviction_location_1">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Charge" title="Charge" onKeyUp='saveDataLocally();' id="traffic_conviction_charge_1">
+							</div>						
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Penalty" title="Penalty" onKeyUp='saveDataLocally();' id="traffic_conviction_penalty_1">
+							</div>
+						</div>
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">					
+							<div class="col-md-3">
+								 <input type="text" class="form-field" placeholder="Date" onfocus="(this.type='date')" title="Date" onKeyUp='saveDataLocally();' id="traffic_conviction_date_2">
+							</div>
+							<div class="col-md-5">
+								<input type="text" class="form-field" placeholder="Location" title="Location" onKeyUp='saveDataLocally();' id="traffic_conviction_location_2">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Charge" title="Charge" onKeyUp='saveDataLocally();' id="traffic_conviction_charge_2">
+							</div>						
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Penalty" title="Penalty" onKeyUp='saveDataLocally();' id="traffic_conviction_penalty_2">
+							</div>
+						</div>
+					</div>
+					<div>			  
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Previous</h4>
+						<div class="row">					
+							<div class="col-md-3">
+								 <input type="text" class="form-field" placeholder="Date" onfocus="(this.type='date')" title="Date" onKeyUp='saveDataLocally();' id="traffic_conviction_date_3">
+							</div>
+							<div class="col-md-5">
+								<input type="text" class="form-field" placeholder="Location" title="Location" onKeyUp='saveDataLocally();' id="traffic_conviction_location_3">
+							</div>			
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Charge" title="Charge" onKeyUp='saveDataLocally();' id="traffic_conviction_charge_3">
+							</div>						
+						</div>
+						<div class="row">												
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Penalty" title="Penalty" onKeyUp='saveDataLocally();' id="traffic_conviction_penalty_3">
+							</div>
+						</div>
+					</div>					
+				</section>
+				
+				<section>
+					<div class="step-title">Step 6: License History</div>	
+					<div class="row">
+						<div class="col-md-12">
+							For the past 2 years.
+							<p>&nbsp;</p>
+						</div>	
+					</div>
+					<div class="row">				
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="license_history_state_0" required='true'>
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="License No" title="License No" onKeyUp='saveDataLocally();' id="license_history_license_no_0" required='true'>
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="Class" title="Class" onKeyUp='saveDataLocally();' id="license_history_class_0" required='true'>
+						</div>
+						<div class="col-md-3">
+							<input type="text" class="form-field" placeholder="Endorsement(s)" title="Endorsement(s)" onKeyUp='saveDataLocally();' id="license_history_endorsement_0" required='true'>
+						</div>						
+						<div class="col-md-3">
+							 <input type="text" class="form-field" placeholder="Expiration" onfocus="(this.type='date')" onchange='saveDataLocally();' title="Expiration" onKeyUp='saveDataLocally();' id="license_history_expiration_0" required='true'>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="license_history_state_1">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="License No" title="License No" onKeyUp='saveDataLocally();' id="license_history_license_no_1">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="Class" title="Class" onKeyUp='saveDataLocally();' id="license_history_class_1">
+						</div>
+						<div class="col-md-3">
+							<input type="text" class="form-field" placeholder="Endorsement(s)" title="Endorsement(s)" onKeyUp='saveDataLocally();' id="license_history_endorsement_1">
+						</div>						
+						<div class="col-md-3">
+							 <input type="text" class="form-field" placeholder="Expiration" onfocus="(this.type='date')" onchange='saveDataLocally();' title="Expiration" onKeyUp='saveDataLocally();' id="license_history_expiration_1">
+						</div>
+					</div>										
+					<div class="row">
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="license_history_state_2">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="License No" title="License No" onKeyUp='saveDataLocally();' id="license_history_license_no_2">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="Class" title="Class" onKeyUp='saveDataLocally();' id="license_history_class_2">
+						</div>
+						<div class="col-md-3">
+							<input type="text" class="form-field" placeholder="Endorsement(s)" title="Endorsement(s)" onKeyUp='saveDataLocally();' id="license_history_endorsement_2">
+						</div>						
+						<div class="col-md-3">
+							 <input type="text" class="form-field" placeholder="Expiration" onfocus="(this.type='date')" onchange='saveDataLocally();' title="Expiration" onKeyUp='saveDataLocally();' id="license_history_expiration_2">
+						</div>
+					</div>										
+					<div class="row">
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="license_history_state_3">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="License No" title="License No" onKeyUp='saveDataLocally();' id="license_history_license_no_3">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="Class" title="Class" onKeyUp='saveDataLocally();' id="license_history_class_3">
+						</div>
+						<div class="col-md-3">
+							<input type="text" class="form-field" placeholder="Endorsement(s)" title="Endorsement(s)" onKeyUp='saveDataLocally();' id="license_history_endorsement_3">
+						</div>						
+						<div class="col-md-3">
+							 <input type="text" class="form-field" placeholder="Expiration" onfocus="(this.type='date')" onchange='saveDataLocally();' title="Expiration" onKeyUp='saveDataLocally();' id="license_history_expiration_3">
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="State" title="State" onKeyUp='saveDataLocally();' id="license_history_state_4">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="License No" title="License No" onKeyUp='saveDataLocally();' id="license_history_license_no_4">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="Class" title="Class" onKeyUp='saveDataLocally();' id="license_history_class_4">
+						</div>
+						<div class="col-md-3">
+							<input type="text" class="form-field" placeholder="Endorsement(s)" title="Endorsement(s)" onKeyUp='saveDataLocally();' id="license_history_endorsement_4">
+						</div>						
+						<div class="col-md-3">
+							 <input type="text" class="form-field" placeholder="Expiration" onfocus="(this.type='date')" onchange='saveDataLocally();' title="Expiration" onKeyUp='saveDataLocally();' id="license_history_expiration_4">
+						</div>
+					</div>
+					<div class="row">									
+						<div class="col-md-8">
+							<label class="form-label" style="height: 45px">A) Have you been denied a license, permit or privilege to operate a motor vehicle?</label>
+						</div>						
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="denied_motor_license" value="YES" onchange='saveDataLocally();' required='true'>
+							</div>
+							<label class="col-sm-9">YES</label>
+						</div>		
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="denied_motor_license" value="NO" onchange='saveDataLocally();'>
+							</div>
+							<label class="col-sm-9">NO</label>
+						</div>
+					</div>
+					<div class="row">									
+						<div class="col-md-8">
+							<label class="form-label" style="height: 45px">B) Has any license, permit or privilege ever been suspended or revoked?</label>
+						</div>						
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="suspended_license" value="YES" onchange='saveDataLocally();' required='true'>
+							</div>
+							<label class="col-sm-9">YES</label>
+						</div>		
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="suspended_license" value="NO" onchange='saveDataLocally();'>
+							</div>
+							<label class="col-sm-9">NO</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-8">
+							<input type="text" class="form-field" placeholder="If the answer to either A or B is YES, Give details..." title="License deniend/revoked details"  onKeyUp='saveDataLocally();' id="denied_suspended_details">
+						</div>
+					</div>
+				</section>
+							
+				<section>
+					<div class="step-title">Step 7: Driving Experience</div>				
+					<div class="row">				
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Straight Truck </h4>
+						<div class="col-md-1 form-label">
+							<input type="checkbox" name="straight_Truck" value="YES" onchange="toggleDrivingExperience(this, 0)" id='driving_experience_is_checked_0'> 
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_type_0" placeholder="Type of equipment (Van, Tank, Flat, Dump, Refer)" title="Type of equipment (Van, Tank, Flat, Dump, Refer, etc.)">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_from_0" placeholder="From Mo/Year"title="From Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_to_0" placeholder="To Mo/Year"title="To Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_miles_0" placeholder="Aprox. Miles" title="Aprox. No Of Miles">
+						</div>					
+					</div>
+					<div class="row">
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Tractor and Semi-Trailer</h4>
+						<div class="col-md-1 form-label">
+							<input type="checkbox" name="straight_Truck" value="YES" onchange="toggleDrivingExperience(this, 1)" id='driving_experience_is_checked_1'> 
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_type_1" placeholder="Type of equipment (Van, Tank, Flat, Dump, Refer)" title="Type of equipment (Van, Tank, Flat, Dump, Refer, etc.)">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_from_1" placeholder="From Mo/Year"title="From Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_to_1" placeholder="To Mo/Year"title="To Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_miles_1" placeholder="Aprox. Miles" title="Aprox. No Of Miles">
+						</div>							
+					</div>
+					<div class="row">
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Tractor-Two Trailers </h4>
+						<div class="col-md-1 form-label">
+							<input type="checkbox" name="straight_Truck" value="YES" onchange="toggleDrivingExperience(this, 2)" id='driving_experience_is_checked_2'> 
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_type_2" placeholder="Type of equipment (Van, Tank, Flat, Dump, Refer)" title="Type of equipment (Van, Tank, Flat, Dump, Refer, etc.)">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_from_2" placeholder="From Mo/Year"title="From Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_to_2" placeholder="To Mo/Year"title="To Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_miles_2" placeholder="Aprox. Miles" title="Aprox. No Of Miles">
+						</div>								
+					</div>
+					<div class="row">
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Tractor-Three Trailers</h4>
+						<div class="col-md-1 form-label">
+							<input type="checkbox" name="straight_Truck" value="YES" onchange="toggleDrivingExperience(this, 3)" id='driving_experience_is_checked_3'> 
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_type_3" placeholder="Type of equipment (Van, Tank, Flat, Dump, Refer)" title="Type of equipment (Van, Tank, Flat, Dump, Refer, etc.)">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_from_3" placeholder="From Mo/Year"title="From Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_to_3" placeholder="To Mo/Year"title="To Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_miles_3" placeholder="Aprox. Miles" title="Aprox. No Of Miles">
+						</div>								
+					</div>
+					<div class="row">
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Motorcoach-School Bus (More than 8 passengers)</h4>
+						<div class="col-md-1 form-label">
+							<input type="checkbox" name="straight_Truck" value="YES" onchange="toggleDrivingExperience(this, 4)" id='driving_experience_is_checked_4'> 
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_type_4" placeholder="Type of equipment (Van, Tank, Flat, Dump, Refer)" title="Type of equipment (Van, Tank, Flat, Dump, Refer, etc.)">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_from_4" placeholder="From Mo/Year"title="From Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_to_4" placeholder="To Mo/Year"title="To Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_miles_4" placeholder="Aprox. Miles" title="Aprox. No Of Miles">
+						</div>								
+					</div>
+					<div class="row">
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Motorcoach-School Bus (More than 15 passengers)</h4>
+						<div class="col-md-1 form-label">
+							<input type="checkbox" name="straight_Truck" value="YES" onchange="toggleDrivingExperience(this, 5)" id='driving_experience_is_checked_5'> 
+						</div>
+						<div class="col-md-5">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_type_5" placeholder="Type of equipment (Van, Tank, Flat, Dump, Refer)" title="Type of equipment (Van, Tank, Flat, Dump, Refer, etc.)">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_from_5" placeholder="From Mo/Year"title="From Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_to_5" placeholder="To Mo/Year"title="To Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" disabled="disabled" onKeyUp='saveDataLocally();' id="driving_experience_miles_5" placeholder="Aprox. Miles" title="Aprox. No Of Miles">
+						</div>						
+					</div>
+					<div class="row">
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Other</h4>
+						<div class="col-md-2">
+							<input type="text" class="form-field" placeholder="Name"title="Name" onKeyUp='saveDataLocally();' id="driving_experience_other_name"> 
+						</div>
+						<div class="col-md-4">
+							<input type="text" class="form-field" onKeyUp='saveDataLocally();' id="driving_experience_other_type" placeholder="Type of equipment" title="Type of equipment">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" onKeyUp='saveDataLocally();' id="driving_experience_other_from" placeholder="From Mo/Year"title="From Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" onKeyUp='saveDataLocally();' id="driving_experience_other_to" placeholder="To Mo/Year"title="To Mo/Year">
+						</div>
+						<div class="col-md-2">
+							<input type="text" class="form-field" onKeyUp='saveDataLocally();' id="driving_experience_other_miles" placeholder="Aprox. Miles" title="Aprox. No Of Miles">
+						</div>				
+					</div>
+					<div class="row">
+						<hr>
+					</div>
+					<div class="row">					
+						<div class="col-md-8">
+							<input type="text" class="form-field" placeholder="States operated in for last five years" title="States operated in for last five years" onKeyUp='saveDataLocally();' id="driving_experience_states_operated" required='true'>
+						</div>
+					</div>
+					<div class="row">					
+						<div class="col-md-8">
+							<input type="text" class="form-field" placeholder="Special courses or training that will help you as driver" title="Special courses or training that will help you as driver" onKeyUp='saveDataLocally();' id="driving_experience_special_courses">
+						</div>
+					</div>				
+					<div class="row">					
+						<div class="col-md-8">
+							<input type="text" class="form-field" placeholder="Which safe driving awards do you hold and from whom?" title="Which safe driving awards do you hold and from whom?" onKeyUp='saveDataLocally();' id="driving_experience_driving_awards">
+						</div>
+					</div>			
+				</section>
+				
+				<section>
+					<div class="step-title">Step 8: Experience, Qualifications and Education</div>
+					<div class="row">					
+						<div class="col-md-12">
+							<input type="text" class="form-field" 
+								placeholder="Show any trucking, transportation or other experience that may help in your work for this company" 
+								title="Show any trucking, transportation or other experience that may help in your work for this company"
+								onKeyUp='saveDataLocally();' id="other_experience">
+						</div>
+					</div>
+					<div class="row">					
+						<div class="col-md-12">
+							<input type="text" class="form-field" 
+								placeholder="List courses and training other than shown elsewere in this application" 
+								title="List courses and training other than shown elsewere in this application"
+								onKeyUp='saveDataLocally();' id="course_and_training">
+						</div>
+					</div>				
+					<div class="row">					
+						<div class="col-md-12">
+							<input type="text" class="form-field" 
+							placeholder="List special equipment or technical materials you can work with (other than those already shown)" 
+							title="List special equipment or technical materials you can work with (other than those already shown)" 
+							onKeyUp='saveDataLocally();' id="special_equipments">
+						</div>
+					</div>
+					<div class="row">
+						<hr>
+					</div>
+					<div class="row">									
+						<div class="col-md-3">
+							<label class="form-label">Highest grade completed</label>
+						</div>						
+						<div class="col-md-1">	
+							<select class="form-field" onchange="saveDataLocally();" id="highest_grade_completed">
+								<option value="N/A">N/A</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>							
+							</select>
+						</div>					
+					</div>
+					<div class="row">									
+						<div class="col-md-3">
+							<label class="form-label">High School</label>
+						</div>						
+						<div class="col-md-1">	
+							<select class="form-field" onchange="saveDataLocally();" id="highest_high_school_completed">
+								<option value="N/A">N/A</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>					
+					</div>
+					<div class="row">									
+						<div class="col-md-3">
+							<label class="form-label">College</label>
+						</div>						
+						<div class="col-md-1">	
+							<select class="form-field" onchange="saveDataLocally();" id="highest_college_completed">
+								<option value="N/A">N/A</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>					
+					</div>
+					<div class="row">					
+						<div class="col-md-12">
+							<input type="text" class="form-field" 
+							placeholder="Last School Attended (Name, City, State)" 
+							placeholder="Last School Attended (Name, City, State)"
+							onKeyUp='saveDataLocally();' id="last_school_attended">
+						</div>
+					</div>
+					<div class="row">
+						<hr>
+					</div>
+					
+					<div class="row">									
+						<div class="col-md-8">
+							<label class="form-label" style="height: 45px">Are you enrolled in clearing house program?</label>
+						</div>						
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="clearing_house" value="YES" onchange='saveDataLocally();' required='true'>
+							</div>
+							<label class="col-sm-9">YES</label>
+						</div>		
+						<div class="input-group col-md-2">	
+							<div class="col-sm-3">
+								<input type="radio" name="clearing_house" value="NO" onchange='saveDataLocally();'>
+							</div>
+							<label class="col-sm-9">NO</label>
+						</div>
+					</div>
+				</section>
+
+		
+				<section>				
+						<div class="step-title">Step 9: Complete Application</div>
+						<div class="row">	
+							<div class="center-box">				
+								<div class="col-md-12 border-square">
+									<p>&nbsp;</p>
+									<div class="center-box text-center black">
+										<strong>TO BE READ AND SIGNED BY APPLICANT</strong>
+										<p>&nbsp;</p>
+									</div>
+									<p>
+						  I authorize you to make investigations (including contacting current and prior employers) into my personal, employment, financial, medical history, and other related matters as may be necessary in arriving at an employment decision. I hereby release employers, schools, health care providers, and other persons from all liability in responding to inquiries and releasing information in connection with my application.
+									</p>
+									<p>
+			In the event of employment, I understand that false or misleading information given in my application or interview(s) may result in discharge. I also understand that I am required to abide by all rules and regulations of the Company.
+									</p>
+									<p>
+			I understand that the information I provide regarding my current and/or prior employers may be used, and those employer(s) will be contacted for the purpose of investigating my safety performance history as required by 49 CFR 391.23. I understand that I have the right to:
+									</p>
+									<ul>
+										<li>Review information provided by current/previous employers;</li>
+										<li>Have errors in the information corrected by previous employers, and for those previous employers to resend the corrected information to the prospective employer; and</li>
+										<li>Have a rebuttal statement attached to the alleged erroneous information, if the previous employer(s) and I cannot agree on the accuracy of the information.</li>								
+									</ul>    
+									<p>&nbsp;</p>
+								</div>
+							</div>
+						</div>
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Signature</h4>
+						<div class="row">
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Driver's Name" title="Name" id='driver_name_signature' required='true'>
+							</div>		
+							<div class="col-md-6">
+								<label id='date_apply' class="form-label"></label>
+							</div>		
+						</div>
+						<div class="row">
+							<hr>				
+						</div>	
+						<div class="row">
+							<div class="input-group col-md-12">	
+								<div class="col-sm-1">
+									<input type="checkbox" name="agree_application" required='true'>
+								</div>
+								<div class="col-sm-11">This certifies that I completed this application, and that all entries on it and information in it are true and complete to the best of my knowledge.</div>
+							</div>		
+						</div>					
+				</section>
+
+				<section>					
+					<div id='last_step'>
+						<div class="step-title">Step 10: Certification of compliance with driver license requirements</div>
+						<div class="row">	
+							<div class="center-box">				
+								<div class="col-md-12 border-square">
+									<p>&nbsp;</p>
+									<div class="center-box text-center black">
+										<strong>TO BE READ AND SIGNED BY APPLICANT</strong>
+										<p>&nbsp;</p>
+									</div>
+									<p>
+						  The requirements in Part 383 apply to every driver who operates in intrastate, interstate, or foreign commerce and operates a vehicle weighing 26001 pounds or more, can transport more than 15 people, or transport hazardous materials that require placarding.
+									</p>
+									<p>
+			The requirements in Part 391 apply to every driver who operates in interstate commerce and operates a vehicle weighing 10,001 pounds or more, can transport more than 15 people, or transport hazardous material that require placarding.
+									</p>
+									<p>
+			DRIVER REQUIREMENTS: Parts 383 and 391 of the Federal Motor Carrier Safety Regulations contain some requirements that you as a driver must comply with. These requirements are in affect as of July 1, 1987. They are as follow:
+									</p>
+									<p>
+									1. <strong>POSSESS ONLY ONE LICENSE</strong>: You, as a commercial vehicle driver, may not posses more than one motor vehicle operator’s license.
+									</p>
+									<p>
+									If you have more than one license, keep the license from your state of residence and return the additional license to the states that issued them. DESTROYING a license does not close the record in the state that issued it; you must notify the state.
+									</p>
+									<p>
+									If a multiple license has been lost, stolen, or destroyed, close your record by notifying the state of issuance that you no longer want to be licensed by the state.
+									</p>
+									<p>
+									2. NOTIFICATION OD LICENSE SUSPENSION, REVOCATION OR CANCELLATION: Sections 392.42 and 383.33 of the Federal Motor Carrier Safety Regulations require that you notify your employer the NEXT BUSSINESS DAY of any revocation or suspension of your driver’s license.
+									</p>
+									<p>
+									In addition, Section 383.31 requires that any time you violate a state or local traffic law (other than parking), you must report it within 30 days to 1) your employing carrier, and 2) the state that issued your license (if the violation occurs in a state other than the one which issued your license). The notification to both the employer and state must be in writing.
+									</p>									
+									<p>&nbsp;</p>
+								</div>
+							</div>
+						</div>
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">The following license is the only I will possess</h4>
+						<div class="row">
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="Driver's License NO." title="Name" id='driver_license_no_compliance' required='true' onKeyUp='allowSubmit(); saveDataLocally();'>
+							</div>		
+							<div class="col-md-3">
+								<input type="text" class="form-field" placeholder="State" title="State" id='driver_license_state_compliance' required='true' onKeyUp='allowSubmit(); saveDataLocally();'>
+							</div>		
+							<div class="col-md-3">								
+								<input type="text" class="form-field" placeholder="Expiration Date" onfocus="(this.type='date')" title="Expiration Date" id="driver_license_expiration_compliance" required='true' onKeyUp='allowSubmit();' onchange="saveDataLocally(); allowSubmit();">
+							</div>									
+						</div>
+						<h4 class="divider line double-razor" style="margin-bottom: 20px">Driver's Certification</h4>	
+						<div class="row">
+							<div class="input-group col-md-12">	
+								<div class="col-md-1">
+									<input type="checkbox" name="driver_license_agree_compliance" required='true' onchange='allowSubmit();'>
+								</div>
+								<div class="col-md-8">I certify that I have read and understand the above requirements.</div>
+								<div class="col-md-3">
+									<label id='date_certification' class="form-label"></label>
+								</div>
+							</div>							
+						</div>
+						<div class="row">
+							<hr>				
+						</div>	
+						<div class="row">
+							<div class="col-md-4">
+								<input type="text" class="form-field" placeholder="Driver's Name (Printed)" title="Driver's Name (Printed)" id='driver_certification_name' required='true' onKeyUp='allowSubmit();'>
+							</div>							
+						</div>	
+					</div>
+					<div class='row' id='sending_application'  style="display: none; padding: 20px;">
+						<div class='spinner-block' style="padding: 20px;">
+							<div class='spinner-content'>							
+								<div class="loader"></div>							
+							</div>
+						</div>
+						<div class="col-md-12 success-application-message center-box text-center">
+							<strong>Sending Application...</strong>
+						</div>												
+					</div>
+					<div class="row" id="application_sent_success" style="display: none;">
+						<div class="center-box text-center">
+							<div class="col-md-12">
+								<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+							</div>							
+							<div class="col-md-12 success-application-message">
+								The application has been sent.
+							</div>
+							<div class="col-md-12 success-application-message">
+								We will reviewed and contact with you shortly.
+							</div>
+							<div class="col-md-12 success-application-message">
+								&nbsp;
+							</div>
+							<div class="col-md-12 success-application-message">
+								<strong>Thank You.</strong>
+							</div>
+							<hr>  					
+							<div class="col-md-12">						
+								<div class="button" onclick="location.href='../../';">Continue to home page</div>
+							</div>
+		
+						</div>
+					</div>
+				</section>
+
+
+				<div class="button" id="prev" onclick="scrollToTop();">&larr; Previous</div>
+				<div class="button" id="next" onclick="scrollToTop();">Next &rarr;</div>
+				<div class="button" id="submit" onclick="agreeAndSendApplication();">Apply</div>
+				<div class='row' style="float: right;">
+					<div class="cancel-button" id="cancel_application" onclick="cancelApplication();">Cancel Application</div>
+				</div>
+			</div>	
+		</div>
+		
+		<footer id="footer">
+			<div class="container">
+				<div class="footer-copyright">
+					© Copyright <script>document.write(new Date().getFullYear());</script> E MAN EXPRESS, INC.
+				</div>			
+			</div>
+		</footer>
+		
+		<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!-- /Preloader -->
+		
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+		<script type="text/javascript" src="../../assets/js/main.js"></script>			
+		<script type="text/javascript" src="../../assets/js/driver-application-employment.js"></script>
+		<script type="text/javascript" src="form-verification.js"></script>
+	</body>
+</html>
