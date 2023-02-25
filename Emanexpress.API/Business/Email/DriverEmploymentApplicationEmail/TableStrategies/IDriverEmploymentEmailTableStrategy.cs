@@ -1,4 +1,5 @@
-﻿using Emanexpress.API.DataTransferObjects;
+﻿using Emanexpress.API.Business.Email.Common.HtmlStructure;
+using Emanexpress.API.DataTransferObjects;
 
 namespace Emanexpress.API.Business.Email
 {

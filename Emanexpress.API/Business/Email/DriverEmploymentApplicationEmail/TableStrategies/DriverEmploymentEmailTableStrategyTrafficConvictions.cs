@@ -1,4 +1,6 @@
-﻿using Emanexpress.API.DataTransferObjects;
+﻿using Emanexpress.API.Business.Email.Common.HtmlStructure;
+using Emanexpress.API.Converter;
+using Emanexpress.API.DataTransferObjects;
 using System;
 using System.Linq;
 
@@ -7,6 +9,13 @@ namespace Emanexpress.API.Business.Email
     public class DriverEmploymentEmailTableStrategyTrafficConvictions : IDriverEmploymentEmailTableStrategy
     {
         public DriverEmploymentApplicationEmailTableType emailTableType => DriverEmploymentApplicationEmailTableType.TrafficConvictions;
+
+        public ConverterHelper ConverterHelper { get; }
+
+        public DriverEmploymentEmailTableStrategyTrafficConvictions(ConverterHelper converterHelper)
+        {
+            ConverterHelper = converterHelper;
+        }
 
         public EmailTable GetEmailTable(DtoDriverEmploymentApplication driverEmploymentApplication)
         {
@@ -29,7 +38,7 @@ namespace Emanexpress.API.Business.Email
                     trafficConvictionsTable.TitleSeparator("Previous");
                 }
 
-                var date = new EmailRowFieldTable("Date", GetDate(trafficConviction.Date),30);
+                var date = new EmailRowFieldTable("Date", ConverterHelper.ToDateString(trafficConviction.Date),30);
                 var location = new EmailRowFieldTable("Location", trafficConviction.Location,40);
                 var charge = new EmailRowFieldTable("Charge",trafficConviction.Charge,30);
                 trafficConvictionsTable.AddRow(date, location, charge);
@@ -40,16 +49,6 @@ namespace Emanexpress.API.Business.Email
             }
                                   
             return trafficConvictionsTable;
-        }
-
-        private string GetDate(DateTime? date)
-        {
-            if (date.HasValue)
-            {
-                return date.Value.ToString("MM/dd/yyyy");
-            }
-            
-            return "";            
-        }
+        }       
     }
 }

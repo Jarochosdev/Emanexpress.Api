@@ -18,7 +18,7 @@ namespace Emanexpress.API.Business.Email
             EmailSenderConfiguration = emailSenderConfiguration;
         }
 
-        public async Task SendEmailAsync(string emailTo, string subject, string body, bool isBodyHtml = false)
+        public async Task SendEmailAsync(string emailTo, string subject, string body, bool isBodyHtml = false, MailPriority mailPriority = MailPriority.Normal)
         {            
             MailMessage message = new MailMessage(EmailSenderConfiguration.UserName, emailTo, subject, body);
             message.IsBodyHtml = isBodyHtml;
@@ -26,7 +26,6 @@ namespace Emanexpress.API.Business.Email
             {
                 message.Bcc.Add(new MailAddress(EmailSenderConfiguration.EmailBcc));
             }
-            
 
             SmtpClient.Credentials = new NetworkCredential(EmailSenderConfiguration.UserName, EmailSenderConfiguration.Password);
 

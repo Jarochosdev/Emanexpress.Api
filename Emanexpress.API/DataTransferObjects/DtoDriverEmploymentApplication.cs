@@ -17,7 +17,7 @@ namespace Emanexpress.API.DataTransferObjects
         public string SocialSecurity { get;set; }
         public DateTime? DateAvailableToStart { get;set; }
         public string PositionAppliedfor { get;set;}
-        public bool HaveLegalRightToWorkInUsa { get;set;}        
+        public bool HaveLegalRightToWorkInUsa { get;set;}
         public string WorkedBeforeForUsWhere { get;set; }
         public DateTime? WorkedBeforeForUsFrom { get;set; }
         public DateTime? WorkedBeforeForUsTo { get;set; }
@@ -33,7 +33,7 @@ namespace Emanexpress.API.DataTransferObjects
         public bool HaveYouEverBeenConvictedOfAFelony { get;set; }
         public string FelonyDetails { get;set; }
         public bool UnableToPerformFunctionsJob { get;set; }
-        public string UnableToPerformFunctionsJobDetails { get;set; }     
+        public string UnableToPerformFunctionsJobDetails { get;set; }
         public IEnumerable<DtoAdress> AddressHistory { get; set; }
         public IEnumerable<DtoEmployment> EmploymentHistory { get; set; }
         public IEnumerable<DtoAccident> AccidentRecords { get;set; }
@@ -42,7 +42,7 @@ namespace Emanexpress.API.DataTransferObjects
         public bool HaveYouBeenDeniedALicense { get;set; }
         public bool HasAnyLicenseBeenSuspended { get;set; }
         public string LicenseSuspendedDetail { get;set; }
-        public IEnumerable<DtoDrivingExperience> DrivingExperience { get;set; }        
+        public IEnumerable<DtoDrivingExperience> DrivingExperience { get;set; }
         public string StatesOperatedForLastYears { get;set; }
         public string SpecialCoursesOfTraining { get; set; }
         public string SafeDrivingAwards { get;set; }
@@ -53,5 +53,11 @@ namespace Emanexpress.API.DataTransferObjects
         public string HighSchool { get;set; }
         public string CollegeLevel { get;set; }
         public string LastAttendedSchool { get;set; }
+        public bool EnrolledInClearingHouse { get;set; }
+        public string DriverNameSignature { get;set; }
+        public bool DriverApplicationAgree { get;set; }
+        public DtoEmergencyContact EmergencyContact { get;set; }
+        public DtoLicenseCertificationOfCompliance LicenseCertificationOfCompliance { get;set; }
+        public DateTime ApplicationDate { get;set; }
     }
 }

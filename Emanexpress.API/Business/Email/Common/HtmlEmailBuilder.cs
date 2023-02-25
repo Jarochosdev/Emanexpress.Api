@@ -1,17 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using Emanexpress.API.Business.Email.Common.HtmlStructure;
+using System.Collections.Generic;
 using System.Linq;
 
-namespace Emanexpress.API.Business.Email
+
+namespace Emanexpress.API.Business.Email.Common
 {
-    public class HtmlDriverEmailbuilder
+    public class HtmlBodyEmailBuilder
     {
         private List<EmailTable> EmailTables {get; }
 
-        public HtmlDriverEmailbuilder()
+        public HtmlBodyEmailBuilder()
         {
             EmailTables = new List<EmailTable>();
         }
-        public HtmlDriverEmailbuilder AddTable(EmailTable emailTable)
+        public HtmlBodyEmailBuilder AddTable(EmailTable emailTable)
         {           
             EmailTables.Add(emailTable);
             return this;
@@ -42,8 +44,18 @@ namespace Emanexpress.API.Business.Email
 			             "<td width='100%' style='text-align: center;'>" + 
 			             table.Header + 
 			             "</td>" +
-			             "</tr>" +
-			             "</table>" +
+			             "</tr>";
+
+            if (!string.IsNullOrWhiteSpace(table.HeaderMessage))
+            {                
+                htmlTable += "<tr>" +
+			                 "<td style='text-align:justify; font-weight:lighter; font-size: 14px' width='100%'>" + 
+			                 table.HeaderMessage + 
+			                 "</td>" +
+			                 "</tr>";
+            }
+
+	        htmlTable += "</table>" +
 				         "</td>" +
 			             "</tr>";
 
@@ -55,9 +67,30 @@ namespace Emanexpress.API.Business.Email
             foreach(var emailElement in table.Elements)
             {
                 htmlTable += "<tr><td> " + emailElement.GetHtml() + "</td></tr>";
-            }                        
+            }
 
-            htmlTable+= "</table>";
+            if(table.FooterMessage.Any())
+            {
+                htmlTable += "<tr style='background: #eee; border-bottom: 1px solid #ddd;'>" +
+				             "<td style='text-align: center; font-size: 16px'>" + 
+					         "<table width='100%;' style='padding:12px;'>";
+                
+                foreach(var footerMessage in table.FooterMessage)
+                {
+                    
+                    htmlTable += "<tr>" +
+			                     "<td style='text-align:justify; font-weight:lighter; font-size: 14px' width='100%'>" + 
+			                     footerMessage + 
+			                     "</td>" +
+			                     "</tr>";
+                }
+                
+                htmlTable += "</table>" +
+				             "</td>" +
+			                 "</tr>";
+            }
+	        
+            htmlTable += "</table>";
 
             return htmlTable;
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Emanexpress.API.Business.Email
+namespace Emanexpress.API.Business.Email.Common.HtmlStructure
 {
     public class EmailRowTable : IEmailRowElement
     {

@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Emanexpress.API.Business.Email;
 using Emanexpress.API.DataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Emanexpress.API.Controllers
-{
-    [Route("api/[controller]")]
+namespace Emanexpress.API.Controllers.WebSite
+{     
+    [Route("[controller]")]
     [ApiController]
     public class DriverEmploymentApplicationsController : ControllerBase
     {   
@@ -20,9 +17,10 @@ namespace Emanexpress.API.Controllers
         }
 
         [HttpPost]
-        public async Task Post([FromBody]DtoDriverEmploymentApplication dtoDriverEmploymentApplication)
-        {            
-            await EmailDriverEmploymentApplicationHandler.SendToAdministratorAsync(dtoDriverEmploymentApplication);
+        public async Task<IActionResult> Post([FromBody]DtoDriverEmploymentApplication dtoDriverEmploymentApplication)
+        {
+            await EmailDriverEmploymentApplicationHandler.HandleAsync(dtoDriverEmploymentApplication);
+            return Ok("OK");
         }
     }
 }

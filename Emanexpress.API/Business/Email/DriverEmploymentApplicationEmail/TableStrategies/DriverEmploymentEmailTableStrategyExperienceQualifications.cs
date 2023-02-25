@@ -1,4 +1,6 @@
-﻿using Emanexpress.API.DataTransferObjects;
+﻿using Emanexpress.API.Business.Email.Common.HtmlStructure;
+using Emanexpress.API.Converter;
+using Emanexpress.API.DataTransferObjects;
 using System;
 
 namespace Emanexpress.API.Business.Email
@@ -6,6 +8,13 @@ namespace Emanexpress.API.Business.Email
     public class DriverEmploymentEmailTableStrategyExperienceQualifications : IDriverEmploymentEmailTableStrategy
     {
         public DriverEmploymentApplicationEmailTableType emailTableType => DriverEmploymentApplicationEmailTableType.ExperienceQualifications;
+
+        public ConverterHelper ConverterHelper { get; }
+
+        public DriverEmploymentEmailTableStrategyExperienceQualifications(ConverterHelper converterHelper)
+        {
+            ConverterHelper = converterHelper;
+        }
 
         public EmailTable GetEmailTable(DtoDriverEmploymentApplication driverEmploymentApplication)
         {
@@ -28,6 +37,9 @@ namespace Emanexpress.API.Business.Email
             
             var lastAttendedSchool = new EmailRowFieldTable("Last school attended", driverEmploymentApplication.LastAttendedSchool);
             applicatInformationTable.AddRow(lastAttendedSchool);
+
+            var enrolledInclearingHouseProgram = new EmailRowFieldTable("Are you enrolled in clearing house program?", ConverterHelper.ToYesNo(driverEmploymentApplication.EnrolledInClearingHouse));
+            applicatInformationTable.AddRow(enrolledInclearingHouseProgram);
 
             return applicatInformationTable;
         }

@@ -10,5 +10,9 @@
         LicenseHistory,
         DrivingExperience,
         ExperienceQualifications,        
+        CertificationOfCompliance,
+        CompleteApplication,
+        ForCompanyUse,
+        TerminationOfEmployment
     }
 }

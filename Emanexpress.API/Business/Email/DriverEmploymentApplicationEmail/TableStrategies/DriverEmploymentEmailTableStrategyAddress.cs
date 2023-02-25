@@ -1,4 +1,6 @@
-﻿using Emanexpress.API.DataTransferObjects;
+﻿using Emanexpress.API.Business.Email.Common.HtmlStructure;
+using Emanexpress.API.Converter;
+using Emanexpress.API.DataTransferObjects;
 using System;
 
 namespace Emanexpress.API.Business.Email
@@ -7,9 +9,18 @@ namespace Emanexpress.API.Business.Email
     {
         public DriverEmploymentApplicationEmailTableType emailTableType => DriverEmploymentApplicationEmailTableType.Address;
 
+        public ConverterHelper ConverterHelper { get; }
+
+        public DriverEmploymentEmailTableStrategyAddress(ConverterHelper converterHelper)
+        {
+            ConverterHelper = converterHelper;
+        }
+
         public EmailTable GetEmailTable(DtoDriverEmploymentApplication driverEmploymentApplication)
         {
-            var addressTable = new EmailTable("Address");
+            var titleMessage ="Addresses of residency for the past 3 years.";
+
+            var addressTable = new EmailTable("Address", titleMessage);
 
             if(driverEmploymentApplication.AddressHistory == null)
             {
@@ -32,12 +43,13 @@ namespace Emanexpress.API.Business.Email
                 var state = new EmailRowFieldTable("State",address.State);
                 addressTable.AddRow(street, city, state);
 
-                var zipCode = new EmailRowFieldTable("Zip Code", address.ZipCode, 20);
-                var numberOfYears = new EmailRowFieldTable("Number of years", address.NumberOfYears,30);
-                addressTable.AddRow(zipCode, numberOfYears);
+                var zipCode = new EmailRowFieldTable("Zip Code", address.ZipCode);
+                var livingFrom = new EmailRowFieldTable("Living From", ConverterHelper.ToDateString(address.LivingFrom));
+                var livingTo = new EmailRowFieldTable("Living To", ConverterHelper.ToDateString(address.LivingTo));
+                addressTable.AddRow(zipCode, livingFrom, livingTo);
             }
                                   
             return addressTable;
-        }        
+        }     
     }
 }

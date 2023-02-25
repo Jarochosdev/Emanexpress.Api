@@ -1,4 +1,4 @@
-﻿namespace Emanexpress.API.Business.Email
+﻿namespace Emanexpress.API.Business.Email.Common.HtmlStructure
 {
     internal class EmailRowFieldTable
     {

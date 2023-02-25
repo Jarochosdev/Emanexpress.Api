@@ -1,4 +1,6 @@
-﻿namespace Emanexpress.API.Models
+﻿using System;
+
+namespace Emanexpress.API.Models
 {
     public class DtoEmployment
     {
@@ -9,8 +11,8 @@
         public string Zipcode { get; set; }
         public string ContactPerson { get; set; }
         public string PhoneNumber { get; set; }
-        public string FromMonthYear { get; set; }
-        public string ToMonthYear { get;set; }
+        public DateTime? From { get; set; }
+        public DateTime? To { get;set; }
         public string Salary { get;set; }
         public string PositionHeld { get;set; }
         public string ReasonForLeaving { get;set; }
