@@ -145,6 +145,11 @@ function agreeAndSendApplication(){
 			'LicenseExpiration': getDate("driver_license_expiration_compliance"),
 			'DriverNamePrinted': document.getElementById("driver_certification_name").value,
 			'CertificationAgree': getBoolCheck("driver_license_agree_compliance")
+		},
+		'EmergencyContact' : {
+			'Name' : document.getElementById("emergency_contact_name").value,
+			'PhoneNumber' : document.getElementById("emergency_contact_phone_number").value,
+			'RelationShip' : document.getElementById("emergency_contact_relationship").value
 		}
 	});
 	
@@ -334,7 +339,10 @@ function getInputValues(){
 		'clearing_house': getSelectedValueFromRadio("clearing_house"),
 		'driver_license_no_compliance': document.getElementById("driver_license_no_compliance").value,
 		'driver_license_state_compliance': document.getElementById("driver_license_state_compliance").value,
-		'driver_license_expiration_compliance': document.getElementById("driver_license_expiration_compliance").value			
+		'driver_license_expiration_compliance': document.getElementById("driver_license_expiration_compliance").value		
+		'emergency_contact_name' : document.getElementById("emergency_contact_name").value
+		'emergency_contact_phone_number' : document.getElementById("emergency_contact_phone_number").value
+		'emergency_contact_relationship' : document.getElementById("emergency_contact_relationship").value
 	};
 					
 	return applicationFormEmployment
@@ -516,7 +524,11 @@ function setInputValues(jsonApplicationFormEmployment){
 	
 	document.getElementById("driver_license_no_compliance").value = getValue(jsonApplicationFormEmployment.driver_license_no_compliance);
 	document.getElementById("driver_license_state_compliance").value = getValue(jsonApplicationFormEmployment.driver_license_state_compliance);
-	document.getElementById("driver_license_expiration_compliance").value = getValue(jsonApplicationFormEmployment.driver_license_expiration_compliance);					
+	document.getElementById("driver_license_expiration_compliance").value = getValue(jsonApplicationFormEmployment.driver_license_expiration_compliance);
+
+	document.getElementById("emergency_contact_name").value = getValue(jsonApplicationFormEmployment.emergency_contact_name);
+	document.getElementById("emergency_contact_phone_number").value = getValue(jsonApplicationFormEmployment.emergency_contact_phone_number);
+	document.getElementById("emergency_contact_relationship").value = getValue(jsonApplicationFormEmployment.emergency_contact_relationship);	
 }
 
 function setAddress(position, jsonAddress){
