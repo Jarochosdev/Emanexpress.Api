@@ -339,9 +339,9 @@ function getInputValues(){
 		'clearing_house': getSelectedValueFromRadio("clearing_house"),
 		'driver_license_no_compliance': document.getElementById("driver_license_no_compliance").value,
 		'driver_license_state_compliance': document.getElementById("driver_license_state_compliance").value,
-		'driver_license_expiration_compliance': document.getElementById("driver_license_expiration_compliance").value		
-		'emergency_contact_name' : document.getElementById("emergency_contact_name").value
-		'emergency_contact_phone_number' : document.getElementById("emergency_contact_phone_number").value
+		'driver_license_expiration_compliance': document.getElementById("driver_license_expiration_compliance").value,	
+		'emergency_contact_name' : document.getElementById("emergency_contact_name").value,
+		'emergency_contact_phone_number' : document.getElementById("emergency_contact_phone_number").value,
 		'emergency_contact_relationship' : document.getElementById("emergency_contact_relationship").value
 	};
 					
