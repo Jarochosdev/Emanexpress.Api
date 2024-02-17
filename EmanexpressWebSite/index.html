@@ -13,6 +13,7 @@
 	<link type="text/css" rel="stylesheet" href="assets/css/common.css" />
 	<link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
 	<script type="text/javascript" src="assets/js/constants.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>	
@@ -439,6 +440,8 @@
 							<input type="text" class="form-field" placeholder="Phone" name="phone" id="phone">
 							<input type="email" class="form-field" placeholder="Email" name="email" id="email" required>
 							<textarea class="form-field" placeholder="Message" name="message" id="message" required></textarea>
+							<div class="g-recaptcha" data-sitekey="6LevFCkpAAAAANFTq9D9a6ra4W4uJ3_4OjA9dOs_"></div>
+							<div style="text-align: left;"><span id="captcha" style="margin-left:100px;color:red"></span></div><br/>
 							<button class="main-btn" type="submit" id="submitContact">Send</button>							
 						</form>
 						<div style="display:none;" id="thankyou_message">
@@ -571,7 +574,17 @@
 
 		const form = document.querySelector('#contact_us_form');
 		form.addEventListener('submit', function(e){
-			handleSubmit(e, this)
+			event.preventDefault();
+			var v = grecaptcha.getResponse();
+		    if(v.length == 0)
+		    {
+		        document.getElementById('captcha').innerHTML="Solve reCAPTCHA to verify you are not a robot.";
+		        return false;
+		    }
+		    else
+		    {
+		        handleSubmit(e, this)
+		    }
 		});
 		
 	</script>
