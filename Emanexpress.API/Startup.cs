@@ -94,12 +94,26 @@ namespace Emanexpress.API
             
             app.UseRouting();
 
-            //if (env.IsDevelopment())
-            //{
+            if (env.IsProduction())
+            {
+                var allowedOrigins = Configuration.GetSection("AllowedOrigins").Get<string[]>();
                 app.UseCors(x => x
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .AllowAnyOrigin());
+                .WithOrigins(allowedOrigins));
+            }
+            else
+            {
+                app.UseCors(x => x
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowAnyOrigin());
+            }
+
+
+            //if (env.IsDevelopment())
+            //{
+            
                 //.SetIsOriginAllowed((value) => true));
             //}
             //else
