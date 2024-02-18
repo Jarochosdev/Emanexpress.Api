@@ -21,8 +21,6 @@ namespace Emanexpress.API
 {
     public class Startup
     {    
-        readonly string allowSpecificOrigins = "_allowSpecificOrigins";
-
         public IConfiguration Configuration { get; }
         public IWebHostEnvironment Env { get; }
 
@@ -34,6 +32,26 @@ namespace Emanexpress.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    if (Env.IsProduction())
+                    {
+                        var allowedOrigins = Configuration.GetSection("AllowedOrigins").Get<string[]>();
+                        builder.WithOrigins(allowedOrigins);
+                    }
+                    else
+                    {
+                        builder.AllowAnyOrigin();
+                    }
+
+                    builder
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
+
             services.AddControllers();
             
             services.AddScoped<EmailValidator>();
@@ -81,8 +99,8 @@ namespace Emanexpress.API
             var companyName = Configuration.GetValue<string>("WebSiteConfiguration:CompanyName");
 
             services.AddScoped( d => new WebSiteConfiguration(logoUrl, contactPhone, contactEmail, companyName));
-            
-            services.AddCors();              
+
+            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -91,45 +109,15 @@ namespace Emanexpress.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            
+
+            //app.UseHttpsRedirection();
             app.UseRouting();
-
-            if (env.IsProduction())
-            {
-                var allowedOrigins = Configuration.GetSection("AllowedOrigins").Get<string[]>();
-                app.UseCors(x => x
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .WithOrigins(allowedOrigins));
-            }
-            else
-            {
-                app.UseCors(x => x
-               .AllowAnyMethod()
-               .AllowAnyHeader()
-               .AllowAnyOrigin());
-            }
-
-
-            //if (env.IsDevelopment())
-            //{
-            
-                //.SetIsOriginAllowed((value) => true));
-            //}
-            //else
-            //{
-            //    var allowedOrigins = Configuration.GetSection("AllowedOrigins").Get<string[]>();
-            //    app.UseCors(x => x
-            //    .WithOrigins(allowedOrigins)
-            //    .AllowAnyMethod()
-            //    .AllowAnyHeader());
-            //}
-
+            app.UseCors("CorsPolicy");
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllers().RequireCors("CorsPolicy");
             });
         }
     }
