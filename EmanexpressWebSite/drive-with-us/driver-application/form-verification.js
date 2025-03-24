@@ -71,7 +71,7 @@ function agreeAndSendApplication(){
 	
 	xhr.onreadystatechange = function () {		
 		if (xhr.readyState === 4) {	
-			if (this.status == 200) {
+			if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
 				$("#sending_application").hide();
 				$("#application_sent_success").show();						
 				localStorage.setItem('applicationFormEmployment', null);
